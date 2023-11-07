@@ -11,13 +11,11 @@ The last part of the development process was all about defining a new generation
 
 
 
-![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 24 34](https://github.com/sarimsiddiqui/SecondBrain/assets/122065546/31ad7920-5a8f-456b-84e7-3d56c6eeae72)
-![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 25 33](https://github.com/sarimsiddiqui/SecondBrain/assets/122065546/db8d9f3f-8a36-4377-baef-b8e10c6dc87d)
-![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 26 55](https://github.com/sarimsiddiqui/SecondBrain/assets/122065546/a65130e1-3b6b-4f49-acf1-cc9ad696b2e2)
-![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 29 10](https://github.com/sarimsiddiqui/SecondBrain/assets/122065546/acc467ce-4c4b-4e31-aa9c-87f043950f96)
-![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 28 51](https://github.com/sarimsiddiqui/SecondBrain/assets/122065546/4a2265e4-8b50-4c52-8516-954f4ab76576)
-![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 18 02 01](https://github.com/sarimsiddiqui/SecondBrain/assets/122065546/4fa35492-e3be-4563-9de4-f8f7437ace7b)
-![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 59 10](https://github.com/sarimsiddiqui/SecondBrain/assets/122065546/48493642-b8fe-4f52-992e-72c17c5dfeaa)
 
-
-
+![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 24 34](https://github.com/sarimsiddiqui/SecondBrain-VisionPro-App/assets/122065546/b72d4a8d-bc90-4ff2-adf8-4f455beb8458)
+![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 25 33](https://github.com/sarimsiddiqui/SecondBrain-VisionPro-App/assets/122065546/23cf2d44-4d83-46de-ae40-4a2b789e91f9)
+![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 26 55](https://github.com/sarimsiddiqui/SecondBrain-VisionPro-App/assets/122065546/27109f27-2b65-41bf-9c46-cf60e56241d7)
+![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 28 51](https://github.com/sarimsiddiqui/SecondBrain-VisionPro-App/assets/122065546/85500aeb-87dc-4b17-8d33-528c4ec7d883)
+![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 17 29 10](https://github.com/sarimsiddiqui/SecondBrain-VisionPro-App/assets/122065546/b22c3f23-2f14-4c12-b155-503f1991d4db)
+![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 18 01 23](https://github.com/sarimsiddiqui/SecondBrain-VisionPro-App/assets/122065546/89381e2f-22e0-4296-9760-e7f63b95fa3f)
+![Simulator Screenshot - Apple Vision Pro - 2023-11-05 at 18 02 01](https://github.com/sarimsiddiqui/SecondBrain-VisionPro-App/assets/122065546/faa2311a-d8d4-4091-a8f8-5e34849f659f)
