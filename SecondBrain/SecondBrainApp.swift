@@ -9,13 +9,20 @@ import SwiftUI
 
 @main
 struct SecondBrainApp: App {
+    @State private var model = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Areas()
+            .environment(model)
         }
+        
 
-        ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
-        }
+        
+        ImmersiveSpace(id:  model.fullSpaceArea){
+                        FullSpaceArea()
+                        .environment(model)
+                }
+        .immersionStyle(selection: .constant(.progressive), in: .progressive )
     }
 }

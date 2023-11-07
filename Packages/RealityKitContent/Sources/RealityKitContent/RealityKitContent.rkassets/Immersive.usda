@@ -7,43 +7,214 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
-    def Sphere "Sphere_Right" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
-    {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0.5, 1.5, -1.5)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
-    def Sphere "Sphere_Left" (
-        active = true
-        prepend apiSchemas = ["MaterialBindingAPI"]
-    )
-    {
-        rel material:binding = </Root/GridMaterial/GridMaterial> (
-            bindMaterialAs = "weakerThanDescendants"
-        )
-        double radius = 0.1
-        quatf xformOp:orient = (1, 0, 0, 0)
-        float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-0.5, 1.5, -1.5)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-    }
-
+    reorder nameChildren = ["SpatialAudio", "Lofi_wav", "GridMaterial", "snowfall"]
     def "GridMaterial" (
         active = true
-        prepend references = @Materials/GridMaterial.usda@
+        references = @Materials/GridMaterial.usda@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "GridMaterial"
+        {
+            token outputs:mtlx:surface.connect = </Root/GridMaterial/GridMaterial/MaterialXPreviewSurface.outputs:out>
+            prepend token outputs:surface.connect = </Root/GridMaterial/GridMaterial/UsdPreviewSurface.outputs:surface>
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+
+            over "MaterialXPreviewSurface" (
+                active = false
+            )
+            {
+                float2 ui:nodegraph:node:size = (207.5, 307)
+            }
+
+            over "Remap"
+            {
+                float2 ui:nodegraph:node:size = (94, 181)
+            }
+
+            over "Fractional"
+            {
+                float2 ui:nodegraph:node:size = (154.5, 109)
+            }
+
+            over "Multiply"
+            {
+                float2 ui:nodegraph:node:size = (60, 36)
+            }
+
+            over "Combine3"
+            {
+                float2 ui:nodegraph:node:size = (145, 54)
+            }
+
+            over "Subtract"
+            {
+                float2 ui:nodegraph:node:size = (61.5, 36)
+            }
+
+            over "Absval"
+            {
+                float2 ui:nodegraph:node:size = (121.5, 53)
+            }
+
+            over "BaseColor"
+            {
+                float2 ui:nodegraph:node:size = (151, 53)
+            }
+
+            over "LineColor"
+            {
+                float2 ui:nodegraph:node:size = (151, 53)
+            }
+
+            over "Texcoord"
+            {
+                float2 ui:nodegraph:node:size = (180.5, 53)
+            }
+
+            over "LineCounts"
+            {
+                float2 ui:nodegraph:node:size = (151.5, 53)
+            }
+
+            over "LineWidths"
+            {
+                float2 ui:nodegraph:node:size = (150, 53)
+            }
+
+            over "Separate2"
+            {
+                float2 ui:nodegraph:node:size = (115, 127)
+            }
+
+            over "Min"
+            {
+                float2 ui:nodegraph:node:size = (113, 40)
+            }
+
+            over "Range"
+            {
+                float2 ui:nodegraph:node:size = (98, 217)
+            }
+
+            def Shader "UsdPreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.4506716, 0.46135616, 0) (
+                    colorSpace = "srgb_texture"
+                )
+                color3f inputs:emissiveColor = (0.8407814, 1, 0.24820444) (
+                    colorSpace = "srgb_texture"
+                )
+                token outputs:surface
+            }
+        }
+    }
+
+    def "snowfall" (
+        active = true
+        references = @snowfall.usdz@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.34188604, 0.7897262, -0.65611553)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "ParticleEmitter" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = None (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            float3 xformOp:translate = (0, 2.020673, -0.01939094)
+
+            over "VFXEmitter"
+            {
+                over "currentState"
+                {
+                    over "mainEmitter"
+                    {
+                        bool isAnimated = 0
+                        asset particleImage = @falling ice snowflakes texture.png@
+                        double particleLifeSpan = 20
+                    }
+                }
+            }
+        }
+    }
+
+    def RealityKitAudioFile "Lofi_wav"
+    {
+        uniform asset file = @Lo-fi Hip Hop Loop.wav@
+        uniform bool shouldLoop = 1
+    }
+
+    def Xform "AmbientAudio"
+    {
+        def RealityKitComponent "AmbientAudio"
+        {
+            uniform token info:id = "RealityKit.AmbientAudio"
+        }
+    }
+
+    def "Snowy_Mountain" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        prepend references = @Snowy Mountain.usdz@
+    )
+    {
+        rel material:binding = None (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float3 xformOp:scale = (0.01, 0.01, 0.01)
+        float3 xformOp:translate = (0.6178651, -1.3949971, -4.16966)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Material"
+            {
+                token outputs:mtlx:surface.connect = </Root/Snowy_Mountain/Materials/Material/PreviewSurface.outputs:out>
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Snowy_Mountain/Materials/Material/surfaceShader.outputs:surface>
+                float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 109.5)
+                float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+
+                over "surfaceShader" (
+                    active = true
+                )
+                {
+                    float inputs:clearcoat = 0
+                    float inputs:clearcoatRoughness = 0.05
+                    color3f inputs:diffuseColor = (0.70183635, 0.70183635, 0.70183635) (
+                        colorSpace = "srgb_texture"
+                    )
+                    float inputs:roughness = 1
+                }
+
+                def Shader "PreviewSurface" (
+                    active = false
+                )
+                {
+                    uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                    token outputs:out
+                    float2 ui:nodegraph:node:pos = (-255, 105)
+                    float2 ui:nodegraph:node:size = (148.5, 199)
+                }
+            }
+        }
+    }
+
+    def "Snowy_Mountain_1" (
+        active = true
+        prepend references = @Snowy Mountain.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.01, 0.01, 0.01)
+        float3 xformOp:translate = (0.52409554, -4.0719767, 10.81811)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
